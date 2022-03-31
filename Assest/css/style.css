@@ -6,4 +6,19 @@
     border-bottom: 10px solid rgb(135, 6, 249);
     padding: 12px;
 }
+/* Used classes to style page with colors and */
+.dashBoard {
+    display: block;
+    padding: 2%;
+    border: 2px solid navy;
+    text-align: left;
+}
 
+.card-body {
+    background-color: navy;
+}
+
+.fiveDay {
+    color: white;
+    
+}
