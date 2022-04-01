@@ -32,7 +32,16 @@ function getApi(event) {
             <p>Temp: ${currentData.main.temp} ℉ </p>
             <p>Wind: ${currentData.wind.speed} MPH</p>
             <p>Humidity: ${currentData.main.humidity} %</p>
-            <p>UV Index: ${data.current.uvi} </p>`
+            <p id="colorChange">UV Index: ${data.current.uvi} </p>
+            <img src="http://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png" ></img>`
+
+            if (data.current.uvi >=8) {
+                $("#colorChange").css("color", "red");
+            } if (data.current.uvi > 4 && data.current.uvi < 8) {
+                $("#colorChange").css("color", "yellow")
+            } else {
+                $("#colorChange").css("color", "green")
+            }
 
                     fiveDay.innerHTML = `
             <div class="col-sm-2">
@@ -42,6 +51,7 @@ function getApi(event) {
                 <p class="card-text">Temp: ${data.daily[1].temp.day} ℉ </p>
                 <p class="card-text">Wind: ${data.daily[1].wind_speed} MPH</p>
                 <p class="card-text">Humidity: ${data.daily[1].humidity} % </p>
+                <img src="http://openweathermap.org/img/wn/${data.daily[1].weather[0].icon}@2x.png" ></img>
             </div>
             </div>
         </div>
@@ -52,6 +62,7 @@ function getApi(event) {
                 <p class="card-text">Temp: ${data.daily[2].temp.day} ℉ </p>
                 <p class="card-text">Wind: ${data.daily[2].wind_speed} MPH</p>
                 <p class="card-text">Humidity: ${data.daily[2].humidity} % </p>
+                <img src="http://openweathermap.org/img/wn/${data.daily[2].weather[0].icon}@2x.png" ></img>
             </div>
             </div>
         </div>
@@ -62,6 +73,7 @@ function getApi(event) {
                     <p class="card-text">Temp: ${data.daily[3].temp.day} ℉ </p>
                     <p class="card-text">Wind: ${data.daily[3].wind_speed} MPH</p>
                     <p class="card-text">Humidity: ${data.daily[3].humidity} % </p>
+                    <img src="http://openweathermap.org/img/wn/${data.daily[3].weather[0].icon}@2x.png" ></img>
                 </div>
             </div>
             </div>
@@ -72,6 +84,7 @@ function getApi(event) {
                     <p class="card-text">Temp: ${data.daily[4].temp.day} ℉ </p>
                     <p class="card-text">Wind: ${data.daily[4].wind_speed} MPH</p>
                     <p class="card-text">Humidity: ${data.daily[4].humidity} % </p>
+                    <img src="http://openweathermap.org/img/wn/${data.daily[4].weather[0].icon}@2x.png" ></img>
                 </div>
                 </div>
             </div>
@@ -82,9 +95,12 @@ function getApi(event) {
                     <p class="card-text">Temp: ${data.daily[5].temp.day} ℉ </p>
                     <p class="card-text">Wind: ${data.daily[5].wind_speed} MPH</p>
                     <p class="card-text">Humidity: ${data.daily[5].humidity} % </p>
+                    <img src="http://openweathermap.org/img/wn/${data.daily[5].weather[0].icon}@2x.png" ></img>
                 </div>
             </div>
             </div>`
+
+            
                 });
         });
 }
